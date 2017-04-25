@@ -8,11 +8,23 @@ from oauth2client import client
 from apiclient.discovery import build
 from apiclient.discovery import build
 
+class model():
+
+  flow = client.flow_from_clientsecrets(
+    '/home/eduardo/Documents/fusion/client/client_secrets.json',
+    scope='https://www.googleapis.com/auth/fusiontables',
+    redirect_uri='urn:ietf:wg:oauth:2.0:oob')
+
+	def __init__(self):
+ 		  auth_uri = self.step1_get_authorize_url()
+  webbrowser.open(auth_uri)
+
+
 
 if __name__ == '__main__':
 
   flow = client.flow_from_clientsecrets(
-    'client_secrets.json',
+    '/home/eduardo/Documents/fusion/client/client_secrets.json',
     scope='https://www.googleapis.com/auth/fusiontables',
     redirect_uri='urn:ietf:wg:oauth:2.0:oob')
 
